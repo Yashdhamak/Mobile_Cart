@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mobile Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Header Style */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            flex: 1;
+            margin: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-buttons button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Mobile Product Section */
+        .brand-section {
+            padding: 20px;
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .product {
+            width: 18%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #ff6f61;
+        }
+
+        .product button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Footer Style */
+        footer {
+            background-color: #325d36;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #e52311;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .partners {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .partners img {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .cart-modal-content button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Left: Logo and Name -->
+        <div class="logo">
+            <img src="https://via.placeholder.com/30" alt="Mobile Cart">
+            <span>Mobile Cart</span>
+        </div>
+
+        <!-- Center: Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+        </div>
+
+        <!-- Right: Navigation Buttons -->
+        <div class="nav-buttons">
+            <button>Home</button>
+            <a href="about.html"><button>About</button></a>
+            <a href="cart.html" style="text-decoration: none;">
+                <button>Cart</button>
+            </a>
+            
+            <a href="contact.html"><button>Contact Us</button></a>
+
+            <a href="login.html"><button>Log In</button></a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Apple Section -->
+        <section class="brand-section">
+            <h2 class="brand-title">Apple</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="iphone13.webp" alt="Apple iPhone 13">
+                    <h3>iPhone 13</h3>
+                    <p>$799</p>
+                    <button onclick="addToCart('Apple iPhone 13', 799)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="iphone12.webp" alt="Apple iPhone 12">
+                    <h3>iPhone 12</h3>
+                    <p>$699</p>
+                    <button onclick="addToCart('Apple iPhone 12', 699)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="iphone11.jpg" alt="Apple iPhone 11">
+                    <h3>iPhone 11</h3>
+                    <p>$599</p>
+                    <button onclick="addToCart('Apple iPhone 11', 599)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="iphoneSE.jpg" alt="Apple iPhone SE">
+                    <h3>iPhone SE</h3>
+                    <p>$399</p>
+                    <button onclick="addToCart('Apple iPhone SE', 399)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="iphonex.jpeg" alt="Apple iPhone X">
+                    <h3>iPhone X</h3>
+                    <p>$499</p>
+                    <button onclick="addToCart('Apple iPhone X', 499)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Samsung Section -->
+        <section class="brand-section">
+            <h2 class="brand-title">Samsung</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="galaxys23.webp" alt="Samsung Galaxy S23">
+                    <h3>Galaxy S23</h3>
+                    <p>$899</p>
+                    <button onclick="addToCart('Samsung Galaxy S23', 899)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="galaxys22.jpg" alt="Samsung Galaxy S22">
+                    <h3>Galaxy S22</h3>
+                    <p>$799</p>
+                    <button onclick="addToCart('Samsung Galaxy S22', 799)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="galaxynote20.jpg" alt="Samsung Galaxy Note 20">
+                    <h3>Galaxy Note 20</h3>
+                    <p>$849</p>
+                    <button onclick="addToCart('Samsung Galaxy Note 20', 849)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="galaxya54.avif" alt="Samsung Galaxy A54">
+                    <h3>Galaxy A54</h3>
+                    <p>$499</p>
+                    <button onclick="addToCart('Samsung Galaxy A54', 499)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="galaxyzfold4.jpg" alt="Samsung Galaxy Z Fold 4">
+                    <h3>Galaxy Z Fold 4</h3>
+                    <p>$1799</p>
+                    <button onclick="addToCart('Samsung Galaxy Z Fold 4', 1799)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OnePlus Section -->
+        <section class="brand-section">
+            <h2 class="brand-title">OnePlus</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="oneplus11.jpg" alt="OnePlus 11">
+                    <h3>OnePlus 11</h3>
+                    <p>$799</p>
+                    <button onclick="addToCart('OnePlus 11', 799)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="oneplus10pro.jpg" alt="OnePlus 10 Pro">
+                    <h3>OnePlus 10 Pro</h3>
+                    <p>$899</p>
+                    <button onclick="addToCart('OnePlus 10 Pro', 899)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="oneplusnord2.jpg" alt="OnePlus Nord 2">
+                    <h3>OnePlus Nord 2</h3>
+                    <p>$399</p>
+                    <button onclick="addToCart('OnePlus Nord 2', 399)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="oneplus9pro.jpg" alt="OnePlus 9 Pro">
+                    <h3>OnePlus 9 Pro</h3>
+                    <p>$849</p>
+                    <button onclick="addToCart('OnePlus 9 Pro', 849)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="oneplus8t.webp" alt="OnePlus 8T">
+                    <h3>OnePlus 8T</h3>
+                    <p>$649</p>
+                    <button onclick="addToCart('OnePlus 8T', 649)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motorola Section -->
+        <section class="brand-section">
+            <h2 class="brand-title">Motorola</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="edge40.webp" alt="Motorola Edge 40">
+                    <h3>Edge 40</h3>
+                    <p>$699</p>
+                    <button onclick="addToCart('Motorola Edge 40', 699)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="motogpower.png" alt="Motorola Moto G Power">
+                    <h3>Moto G Power</h3>
+                    <p>$299</p>
+                    <button onclick="addToCart('Motorola Moto G Power', 299)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="edge+.jpg" alt="Motorola Edge+">
+                    <h3>Edge+</h3>
+                    <p>$999</p>
+                    <button onclick="addToCart('Motorola Edge+', 999)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="razr2023.jpg" alt="Motorola Razr 2023">
+                    <h3>Razr 2023</h3>
+                    <p>$1399</p>
+                    <button onclick="addToCart('Motorola Razr 2023', 1399)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="onefusion.webp" alt="Motorola One Fusion+">
+                    <h3>One Fusion+</h3>
+                    <p>$349</p>
+                    <button onclick="addToCart('Motorola One Fusion+', 349)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mobile Cart | All Rights Reserved</p>
+        <div class="partners">
+            <img src="https://via.placeholder.com/100x50?text=Apple" alt="Apple">
+            <img src="https://via.placeholder.com/100x50?text=Samsung" alt="Samsung">
+            <img src="https://via.placeholder.com/100x50?text=OnePlus" alt="OnePlus">
+            <img src="https://via.placeholder.com/100x50?text=Motorola" alt="Motorola">
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <h2>Your Cart</h2>
+            <p>No items in your cart</p>
+            <button onclick="closeCartModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCartButton();
+        }
+
+        function updateCartButton() {
+            document.getElementById('cart-button').textContent = `Cart (${cart.length})`;
+        }
+
+        function openCartModal() {
+            let cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'flex';
+        }
+
+        function closeCartModal() {
+            let cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'none';
+        }
+
+        document.getElementById('cart-button').addEventListener('click', openCartModal);
+    </script>
+</body>
+</html>
